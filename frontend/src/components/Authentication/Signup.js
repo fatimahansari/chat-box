@@ -6,6 +6,7 @@ import { useToast } from "@chakra-ui/toast";
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import { api } from "../../config/ChatLogics";
 
 const Signup = () => {
   const [show, setShow] = useState(false);
@@ -50,7 +51,7 @@ const Signup = () => {
           "Content-type": "application/json",
         },
       };
-      const { data } = await axios.post(
+      const { data } = await api.post(
         "/api/user",
         {
           name,

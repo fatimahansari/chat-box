@@ -1,3 +1,9 @@
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
+
 export const isSameSenderMargin = (messages, m, i, userId) => {
   // console.log(i === messages.length - 1);
 
