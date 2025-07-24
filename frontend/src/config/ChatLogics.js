@@ -1,4 +1,8 @@
 import axios from "axios";
+api.interceptors.request.use((config) => {
+  console.log("Request to:", config.baseURL + config.url);
+  return config;
+});
 
 export const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
