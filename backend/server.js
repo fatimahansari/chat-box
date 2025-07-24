@@ -19,20 +19,26 @@ const allowedOrigins = [
   "https://chat-box-delta-cyan.vercel.app", // your frontend
 ];
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+//app.use(
+ // cors({
+  //  origin: function (origin, callback) {
+   //   if (!origin || allowedOrigins.includes(origin)) {
+     //   callback(null, true);
+     // } else {
+      //  callback(new Error("Not allowed by CORS"));
+     // }
+    //},
+    //credentials: true,
+   // methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+   // allowedHeaders: ["Content-Type", "Authorization"],
+ // })
+//);
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
+app.options("*", cors());
+
 
 app.options("*", cors());
 
